@@ -15,4 +15,4 @@ The first of the space-separated values is the knight's starting position, the s
 For each line in the input, the program will print (to standard out) the shortest path it found. So for the example above, it should print e.g.:
 
 D4 F5 G7
-D4 E2 F4 D5
+D4 F5 E7 D5
