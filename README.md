@@ -16,3 +16,4 @@ For each line in the input, the program will print (to standard out) the shortes
 
 D4 F5 G7
 D4 F5 E7 D5
+
