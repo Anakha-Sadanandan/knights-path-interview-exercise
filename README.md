@@ -20,4 +20,4 @@ D4 F5 G7
 D4 F5 E7 D5
 
 This is the shortest path and coordinates that a Knight can move from starting position to it's target position.
-This is implemented using BFS(Breadth First Search)algorithm.
+This is implemented using BFS(Breadth First Search) algorithm.
