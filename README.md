@@ -8,12 +8,12 @@ Functional Requirements:
 To write a command-line executable that reads instructions from standard input (stdin).
 Instructions are lines (separated by newlines) in the following format:
 
-D4 G7
-D4 D5
+Test case 1: D4 G7
+Test case 2: D4 D5
 
 The first of the space-separated values is the knight's starting position, the second is the knight's target position.
 For each line in the input, the program will print (to standard out) the shortest path it found. So for the example above, it should print e.g.:
 
-D4 F5 G7
-D4 F5 E7 D5
+Test case 1 output: D4 F5 G7
+Test case 2 output: D4 F5 E7 D5
 
