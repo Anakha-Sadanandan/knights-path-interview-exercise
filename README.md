@@ -13,9 +13,10 @@ D4 G7
 D4 D5
 
 The first of the space-separated values is the knight's starting position, the second is the knight's target position.
-For each line in the input, the program will print (to standard out) the shortest path it found. So for the example above, it should print e.g.:
+For each line in the input, the program will print (to standard out) the shortest path it found. So for the example above, it will print like:
 
 D4 F5 G7
 
 D4 F5 E7 D5
 
+This is the shortest path and coordinates that a Knight can move from starting position to it's target position. 
