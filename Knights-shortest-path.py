@@ -34,6 +34,7 @@ def shortest_knight_path(start: Tuple[int, int], end: Tuple[int, int]) -> None:
             path_exist = True
             for i in path:
                 print(convert_coordinates_toalpha(i[0])+str(i[1]),end=" ")
+            print()
             break
         
 
@@ -45,13 +46,23 @@ def shortest_knight_path(start: Tuple[int, int], end: Tuple[int, int]) -> None:
     if not path_exist:
         print("No path exist between given points")
 
-starting,ending=map(str,(input("Enter starting and ending coordinates (x1y1) (x2y2)  of the knight:")).split(" "))
-start_c = [x for x in s]
-end_c=[x for x in e]
-start_x=convert_coordinates_tonumber(start_c[0])
-start_y=int(start_c[1])
-end_x=convert_coordinates_tonumber(end_c[0])
-end_y=int(end_c[1])
-start = (start_x, start_y)
-end = (end_x, end_y)
-shortest_knight_path(start, end)
+starting1,ending1=map(str,(input("Enter starting and ending coordinates (x1y1) (x2y2)  of the knight-1:")).split(" "))
+starting2,ending2=map(str,(input("Enter starting and ending coordinates (x1y1) (x2y2)  of the knight-2:")).split(" "))
+start_c1 = [s1 for s1 in starting1]
+end_c1=[e1 for e1 in ending1]
+start_c2 = [s2 for s2 in starting2]
+end_c2=[e2 for e2 in ending2]
+start_x1=convert_coordinates_tonumber(start_c1[0])
+start_y1=int(start_c1[1])
+start_x2=convert_coordinates_tonumber(start_c2[0])
+start_y2=int(start_c2[1])
+end_x1=convert_coordinates_tonumber(end_c1[0])
+end_y1=int(end_c1[1])
+end_x2=convert_coordinates_tonumber(end_c2[0])
+end_y2=int(end_c2[1])
+start1 = (start_x1, start_y1)
+end1 = (end_x1, end_y1)
+start2 = (start_x2, start_y2)
+end2 = (end_x2, end_y2)
+shortest_knight_path(start1, end1)
+shortest_knight_path(start2, end2)
