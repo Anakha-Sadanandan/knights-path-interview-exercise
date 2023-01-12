@@ -33,7 +33,7 @@ Here is a brief overview of the algorithm:
 
 4) Mark the current point as visited, and append it to the path.
 
-5 )Repeat steps 2-4 until the end point is found or the queue is empty. If the queue is empty and the end point is not found, print "No path exist between given points".
+5) Repeat steps 2-4 until the end point is found or the queue is empty. If the queue is empty and the end point is not found, print "No path exist between given points".
 
 6) Finally, it uses the helper functions convert_coordinates_toalpha(N) and convert_coordinates_tonumber(c) to convert between numerical and alphabetic representation of the chess board coordinates.
 
