@@ -1,77 +1,51 @@
 from collections import deque
-flag=0
-def convert_coordinates_toalpha(N):
-    if(N==1):
-        return "A"
-    elif(N==2):
-        return "B"
-    elif(N==3):
-        return "C"
-    elif(N==4):
-        return "D"
-    elif(N==5):
-        return "E"
-    elif(N==6):
-        return "F"
-    elif(N==7):
-        return "G"
-    else:
-        return "H"
-def convert_coordinates_tonumber(c):
-    if(c=="A" or c=="a"):
-        return 1
-    elif(c=="B" or c=="b"):
-        return 2
-    elif(c=="C" or c=="c"):
-        return 2
-    elif(c=="D" or c=="d"):
-        return 4
-    elif(c=="E" or c=="e"):
-        return 5
-    elif(c=="F" or c=="f"):
-        return 6
-    elif(c=="G" or c=="g"):
-        return 7
-    else:
-        return 8
-    
+from typing import List, Tuple
 
-def shortest_knight_path(start, end):
-    # Function to check whether the move is valid or not
-    def isvalid(pos):
-        return 1 <= pos[0] < 9 and 1 <= pos[1] < 9
+def convert_coordinates_toalpha(N: int) -> str:
+    alpha_dict = {1: "A", 2: "B", 3: "C", 4: "D", 5: "E", 6: "F", 7: "G", 8: "H"}
+    return alpha_dict.get(N, "Invalid input")
 
-    # Function to create all possible moves
-    def moves_generator(pos):
-        x, y = pos
-        moves = [(x + i, y + j) for i, j in [(2, 1), (2, -1), (-2, 1), (-2, -1), (1, 2), (1, -2), (-1, 2), (-1, -2)]]
-        return [move for move in moves if isvalid(move)]
+def convert_coordinates_tonumber(c: str) -> int:
+    number_dict = {"A": 1, "B": 2, "C": 3, "D": 4, "E": 5, "F": 6, "G": 7, "H": 8}
+    return number_dict.get(c.upper(), "Invalid input")
 
-    
+def isvalid_move(pos: Tuple[int, int]) -> bool:
+    """
+    Check if the move is valid or not
+    """
+    return 1 <= pos[0] < 9 and 1 <= pos[1] < 9
+
+def generate_moves(pos: Tuple[int, int]) -> List[Tuple[int, int]]:
+    """
+    Generate all possible moves
+    """
+    x, y = pos
+    moves = [(x + i, y + j) for i, j in [(2, 1), (2, -1), (-2, 1), (-2, -1), (1, 2), (1, -2), (-1, 2), (-1, -2)]]
+    return [move for move in moves if isvalid_move(move)]
+
+def shortest_knight_path(start: Tuple[int, int], end: Tuple[int, int]) -> None:
+    path_exist = False
     queue = deque([(start, [start])])
     visited = {start}
     while queue:
         pos, path = queue.popleft()
 
         if pos == end:
-            flag=1
+            path_exist = True
             for i in path:
                 print(convert_coordinates_toalpha(i[0])+str(i[1]),end=" ")
-            
+            break
         
 
-        for move in moves_generator(pos):
+        for move in generate_moves(pos):
             if move not in visited:
                 visited.add(move)
                 new_path = path + [move]
                 queue.append((move, new_path))
-    if(flag==0):
+    if not path_exist:
         print("No path exist between given points")
 
-    
-
-s=input("Enter starting coordinates (xy) of the knight: ")
-e=input("Enter ending coordinates (xy) of the knight: ")
+starting,ending=map(str,(input("Enter starting and ending coordinates (x1y1) (x2y2)  of the knight:")).split(" "))
 start_c = [x for x in s]
 end_c=[x for x in e]
 start_x=convert_coordinates_tonumber(start_c[0])
